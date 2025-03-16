@@ -27,7 +27,7 @@ const Slider = () => {
       <div className="carousel-inner">
         <div className="carousel-item active">
           <img
-            src="/src/assets/images/slide1.jpg"
+            src="/public/assets/images/slide1.jpg"
             className="d-block w-100"
             alt="..."
           ></img>
@@ -38,7 +38,7 @@ const Slider = () => {
         </div>
         <div className="carousel-item">
           <img
-            src="/src/assets/images/slide2.jpg"
+            src="/public/assets/images/slide2.jpg"
             className="d-block w-100"
             alt="..."
           ></img>
@@ -49,7 +49,7 @@ const Slider = () => {
         </div>
         <div className="carousel-item">
           <img
-            src="/src/assets/images/slide3.jpg"
+            src="/public/assets/images/slide3.jpg"
             className="d-block w-100"
             alt="..."
           ></img>

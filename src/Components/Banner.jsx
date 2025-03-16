@@ -4,7 +4,7 @@ const Banner = () => {
       <div className="card-header">Featured</div>
       <div className="card-body">
         <img
-          src="/src/assets/images/logo.png"
+          src="/public/assets/images/logo.png"
           alt="logo"
           width="301px"
           height="267px"
