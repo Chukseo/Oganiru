@@ -32,8 +32,8 @@ const Slider = () => {
             alt="..."
           ></img>
           <div className="carousel-caption d-none d-md-block">
-            <h5>First slide label</h5>
-            <p>Some representative placeholder content for the first slide.</p>
+            <h5>Promoting the Culture</h5>
+            <p>actively celebrating, preserving, and sharing cultural heritage through various means, including education, events, and community engagement, ultimately fostering understanding and appreciation.</p>
           </div>
         </div>
         <div className="carousel-item">
@@ -43,8 +43,8 @@ const Slider = () => {
             alt="..."
           ></img>
           <div className="carousel-caption d-none d-md-block">
-            <h5>Second slide label</h5>
-            <p>Some representative placeholder content for the second slide.</p>
+            <h5>Showcasing our cultural heritage</h5>
+            <p>We respect and preserve traditions through cultural celebrations. Through the naming of our children. Through the honoring of our ancestors...</p>
           </div>
         </div>
         <div className="carousel-item">
@@ -54,8 +54,8 @@ const Slider = () => {
             alt="..."
           ></img>
           <div className="carousel-caption d-none d-md-block">
-            <h5>Third slide label</h5>
-            <p>Some representative placeholder content for the third slide.</p>
+            <h5>Preserving our cultural heritage</h5>
+            <p>safeguarding traditions, languages, and knowledge systems, including tangible assets like monuments and artifacts, through documentation, education, community involvement, and legal protection, ensuring continuity for future generations.</p>
           </div>
         </div>
       </div>

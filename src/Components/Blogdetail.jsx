@@ -4,7 +4,7 @@ const Blogdetail = () => {
     return (
         <div className="card mb-3">
           <img
-            src="/assets/images/slide2.jpg"
+            src="/assets/images/slide5.jpg"
             className="card-img-top"
             alt=""
           ></img>

@@ -3,7 +3,7 @@ import React from 'react'
 const Jumbotron3 = () => {
     return (
         <div className="mt-4 p-5 bg-primary text-white rounded">
-          <h1>Blog Title</h1>
+          <h1>Blog Detail</h1>
           <p>
             We aim to upgrade our village's infrastructure and amenities, making it
             a desirable destination for tourists, investors, and our diaspora
