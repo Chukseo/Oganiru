@@ -1,156 +1,96 @@
-// import { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
 
+const PostsComponent = () => {
+  const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-const Posts = () => {
-  // const [ setData] = useState([])
-  
-  // useEffect(() => {
-  //   fetch('http://localhost:8000/api/diarys/')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setData(data)
-  //       console.log(data)
-  //     }
-  //   )
-  //     .catch(e => console.log(e))
-  // })
-  
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+        if (!response.ok) {
+          throw new Error('Failed to fetch blogs');
+        }
+        const data = await response.json();
+        setPosts(data);
+        setLoading(false);
+      } catch (err) {
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+  if (loading) 
+    return<div className="card" aria-hidden="true">
+  {/* {{<placeholder width="100%" height="180" class="card-img-top" text="false">}} */}
+  <div className="card-body">
+    <div clasNames="h5 card-title placeholder-glow">
+      <span className="placeholder col-6"></span>
+    </div>
+    <p className="card-text placeholder-glow">
+      <span className="placeholder col-7"></span>
+      <span className="placeholder col-4"></span>
+      <span className="placeholder col-4"></span>
+      <span className="placeholder col-6"></span>
+      <span className="placeholder col-8"></span>
+    </p>
+    <a className="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+    <p className="card-text placeholder-glow">
+      <span className="placeholder col-7"></span>
+      <span className="placeholder col-4"></span>
+      <span className="placeholder col-4"></span>
+      <span className="placeholder col-6"></span>
+      <span className="placeholder col-8"></span>
+    </p>
+    <a className="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+    <p className="card-text placeholder-glow">
+      <span className="placeholder col-7"></span>
+      <span className="placeholder col-4"></span>
+      <span className="placeholder col-4"></span>
+      <span className="placeholder col-6"></span>
+      <span className="placeholder col-8"></span>
+    </p>
+    <a className="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+    <p className="card-text placeholder-glow">
+      <span className="placeholder col-7"></span>
+      <span className="placeholder col-4"></span>
+      <span className="placeholder col-4"></span>
+      <span className="placeholder col-6"></span>
+      <span className="placeholder col-8"></span>
+    </p>
+    <a className="btn btn-primary disabled placeholder col-6" aria-disabled="true"></a>
+  </div>
+</div>
+
+  if (error) return <div>You are offline: {error}</div>;
 
   return (
-    <div className="row row-cols-1 row-cols-md-3 g-4">
-      <div className="col">
-        <div className="card h-100">
-          
-          <div className="card-body">
-            <h5 className="card-title">Moving our Communities Farward</h5>
-            <p className="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-              <p>
-              <a className="nav-link active" href="/Postdetail">Read More...</a>
-              </p>
-            </p>
-            <small className="text-body-secondary">Posted by: Oge Nnaji</small>
-          </div>
-          <div className="card-footer">
-            <small className="text-body-secondary">
-              Last updated 3 mins ago
-            </small>
-          </div>
+    
+    <div className="d-flex">
+    <div className="row-4">
+      <div className="col-md-12">
+        <div className="cards">
+          {posts.map((post) => (
+            <div key={post.id}>
+            <h4 className="card-title">{post.title}</h4>
+            <p className="card-content">{post.body} <a href={`/postdetail/${post.id}`}>Read More...</a></p>
+            {/* <p className="card-text">Posted by: Oge Nnaji</p>
+            <p className="card-text">Date</p> */}
+            </div>
+            ))}
+            </div>
         </div>
+      
       </div>
-      <div className="col">
-        <div className="card h-100">
-          {/* <img src="..." className="card-img-top" alt="..."></img> */}
-          <div className="card-body">
-            <h5 className="card-title">Enhancing the Ibo Culture</h5>
-            <p className="card-text">
-              This card has supporting text below as a natural lead-in to
-              additional content.
-              <p>
-              <a className="nav-link active" href="/Postdetail">Read More...</a>
-              </p>
-            </p>
-            <small className="text-body-secondary">Posted by: Oge Nnaji</small>
-          </div>
-          <div className="card-footer">
-            <small className="text-body-secondary">
-              Last updated 3 mins ago
-            </small>
-          </div>
-        </div>
-      </div>
-      <div className="col">
-        <div className="card h-100">
-          {/* <img src="..." className="card-img-top" alt="..."></img> */}
-          <div className="card-body">
-            <h5 className="card-title">Building Industrous Communities</h5>
-            <p className="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
-              <p>
-              <a className="nav-link active" href="/Postdetail">Read More...</a>
-              </p>
-            </p>
-            <small className="text-body-secondary">Posted by: Oge Nnaji</small>
-          </div>
-          <div className="card-footer">
-            <small className="text-body-secondary">
-              Last updated 3 mins ago
-            </small>
-          </div>
-        </div>
-      </div>
-
-      <div className="col">
-        <div className="card h-100">
-          {/* <img src="..." className="card-img-top" alt="..."></img> */}
-          <div className="card-body">
-            <h5 className="card-title">Moving our Communities Farward</h5>
-            <p className="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This content is a little bit
-              longer.
-              <p>
-              <a className="nav-link active" href="/Postdetail">Read More...</a>
-              </p>
-            </p>
-            <small className="text-body-secondary">Posted by: Oge Nnaji</small>
-          </div>
-          <div className="card-footer">
-            <small className="text-body-secondary">
-              Last updated 3 mins ago
-            </small>
-          </div>
-        </div>
-      </div>
-      <div className="col">
-        <div className="card h-100">
-          {/* <img src="..." className="card-img-top" alt="..."></img> */}
-          <div className="card-body">
-            <h5 className="card-title">Enhancing the Ibo Culture</h5>
-            <p className="card-text">
-              This card has supporting text below as a natural lead-in to
-              additional content.
-              <p>
-              <a className="nav-link active" href="/Postdetail">Read More...</a>
-              </p>
-            </p>
-            <small className="text-body-secondary">Posted by: Oge Nnaji</small>
-          </div>
-          <div className="card-footer">
-            <small className="text-body-secondary">
-              Last updated 3 mins ago
-            </small>
-          </div>
-        </div>
-      </div>
-      <div className="col">
-        <div className="card h-100">
-          {/* <img src="..." className="card-img-top" alt="..."></img> */}
-          <div className="card-body">
-            <h5 className="card-title">Building Industrous Communities</h5>
-            <p className="card-text">
-              This is a wider card with supporting text below as a natural
-              lead-in to additional content. This card has even longer content
-              than the first to show that equal height action.
-              <p>
-              <a className="nav-link active" href="/Postdetail">Read More...</a>
-              </p>
-            </p>
-            <small className="text-body-secondary">Posted by: Oge Nnaji</small>
-          </div>
-          <div className="card-footer">
-            <small className="text-body-secondary">
-              Last updated 3 mins ago
-            </small>
-          </div>
-        </div>
-      </div>
+        
+      
     </div>
   );
 };
 
-export default Posts;
+
+export default PostsComponent;
